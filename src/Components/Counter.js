@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+
 
 class Counter extends React.Component {
   constructor(props) {
@@ -11,10 +13,18 @@ class Counter extends React.Component {
     const count = this.state.count;
     this.setState({count: count + 1});
   }
+  decrement = () => {
+    const count = this.state.count;
+    this.setState({count: count - 1});
+  }
   render() {
     const count = this.state.count;
     return (
-      <button onClick={this.increment}>{count}</button>
+      <div>
+        <Button variant="contained" color="primary" onClick={this.increment}>+1</Button>
+        <p>{count}</p>
+        <Button variant="contained" color="primary" onClick={this.decrement}>-1</Button>
+      </div>
     );
   }
 }
