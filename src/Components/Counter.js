@@ -3,8 +3,8 @@ import Button from '@material-ui/core/Button';
 
 
 class Counter extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       count: 0
     };
@@ -15,7 +15,9 @@ class Counter extends React.Component {
   }
   decrement = () => {
     const count = this.state.count;
-    this.setState({count: count - 1});
+    if(count > 0){
+      this.setState({count: count - 1});
+    }
   }
   render() {
     const count = this.state.count;
